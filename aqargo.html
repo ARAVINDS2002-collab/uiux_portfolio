@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQARGO | Logo Design Project</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="assets/js/tailwindcss.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ["class"],
+            theme: {
+                container: {
+                    center: true,
+                    padding: "2rem",
+                    screens: { "2xl": "1400px" },
+                },
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" },
+                        secondary: { DEFAULT: "hsl(var(--secondary))", foreground: "hsl(var(--secondary-foreground))" },
+                        destructive: { DEFAULT: "hsl(var(--destructive))", foreground: "hsl(var(--destructive-foreground))" },
+                        muted: { DEFAULT: "hsl(var(--muted))", foreground: "hsl(var(--muted-foreground))" },
+                        accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
+                        popover: { DEFAULT: "hsl(var(--popover))", foreground: "hsl(var(--popover-foreground))" },
+                        card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
+                    },
+                    borderRadius: { lg: "var(--radius)", md: "calc(var(--radius) - 2px)", sm: "calc(var(--radius) - 4px)" },
+                },
+            },
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="assets/js/lucide.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-bold gradient-text hover:scale-105 transition-transform">
+                    ARAVIND S
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html#projects"
+                        class="text-foreground/80 hover:text-foreground transition-colors font-medium">Work</a>
+                    <a href="index.html#about"
+                        class="text-foreground/80 hover:text-foreground transition-colors font-medium">About</a>
+                    <a href="index.html#contact"
+                        class="text-foreground/80 hover:text-foreground transition-colors font-medium">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition-colors"
+                        aria-label="Toggle Theme">
+                        <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                    </button>
+                    <a href="index.html#contact"
+                        class="glass-card hover-lift bg-primary/90 hover:bg-primary text-primary-foreground border-primary/30 px-5 py-2 rounded-[10px]">Let's
+                        Talk</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-4 md:hidden">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-white/10 transition-colors"
+                        aria-label="Toggle Theme">
+                        <i data-lucide="moon" class="w-5 h-5 text-foreground"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="glass-card p-2 rounded-xl hover-lift">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 glass-card rounded-2xl p-6 animate-fade-in">
+                <div class="flex flex-col gap-4">
+                    <a href="index.html#projects"
+                        class="text-left py-2 text-foreground/80 hover:text-foreground transition-colors font-medium">Work</a>
+                    <a href="index.html#about"
+                        class="text-left py-2 text-foreground/80 hover:text-foreground transition-colors font-medium">About</a>
+                    <a href="index.html#contact"
+                        class="text-left py-2 text-foreground/80 hover:text-foreground transition-colors font-medium">Contact</a>
+                    <a href="index.html#contact"
+                        class="glass-card bg-primary/90 hover:bg-primary text-primary-foreground border-primary/30 px-5 py-2 rounded-[10px] text-center">Let's
+                        Talk</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-0 px-6">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Back Button -->
+            <a href="branding.html"
+                class="glass-card hover-lift mb-8 border-2 px-4 py-2 rounded-md inline-flex items-center gap-2 text-foreground/80 hover:text-foreground transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Brandings
+            </a>
+
+            <!-- Header Section -->
+            <div class="glass-card rounded-3xl p-8 md:p-12 mb-12 hover-lift animate-fade-in text-center">
+                <div class="mb-4 flex justify-center">
+                    <span class="glass-card px-4 py-2 text-sm font-medium rounded-full text-secondary">Logo
+                        Design</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">AQARGO</h1>
+                <p class="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+                    A distinct logo design project focusing on modern aesthetics and brand recognition.
+                </p>
+            </div>
+
+            <!-- Design Gallery -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold mb-8 text-center gradient-text">Design Gallery</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Image 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-80 cursor-pointer"
+                        onclick="openModal('assets/images/branding/aqargo/AQARGO 1-portrait.png')">
+                        <img src="assets/images/branding/aqargo/AQARGO 1-portrait.png" alt="AQARGO Design 1"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-80 cursor-pointer"
+                        onclick="openModal('assets/images/branding/aqargo/AQARGO 2-portrait.png')">
+                        <img src="assets/images/branding/aqargo/AQARGO 2-portrait.png" alt="AQARGO Design 2"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-80 cursor-pointer"
+                        onclick="openModal('assets/images/branding/aqargo/AQARGO 3-portrait.png')">
+                        <img src="assets/images/branding/aqargo/AQARGO 3-portrait.png" alt="AQARGO Design 3"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <!-- Image 4 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-80 cursor-pointer"
+                        onclick="openModal('assets/images/branding/aqargo/AQARGO 4-portrait.png')">
+                        <img src="assets/images/branding/aqargo/AQARGO 4-portrait.png" alt="AQARGO Design 4"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <!-- Image 5 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-80 cursor-pointer"
+                        onclick="openModal('assets/images/branding/aqargo/AQARGO 5-portrait.png')">
+                        <img src="assets/images/branding/aqargo/AQARGO 5-portrait.png" alt="AQARGO Design 5"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <!-- Image 6 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-80 cursor-pointer"
+                        onclick="openModal('assets/images/branding/aqargo/AQARGO 6-portrait.png')">
+                        <img src="assets/images/branding/aqargo/AQARGO 6-portrait.png" alt="AQARGO Design 6"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mockups Gallery -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold mb-8 text-center gradient-text">Mockups</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Mockup 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-72 cursor-pointer"
+                        onclick="openModal('assets/mockups/a1.png')">
+                        <img src="assets/mockups/a1.png" alt="AQARGO Mockup 1"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- Mockup 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-72 cursor-pointer"
+                        onclick="openModal('assets/mockups/a2.png')">
+                        <img src="assets/mockups/a2.png" alt="AQARGO Mockup 2"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- Mockup 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-72 cursor-pointer"
+                        onclick="openModal('assets/mockups/a3.png')">
+                        <img src="assets/mockups/a3.png" alt="AQARGO Mockup 3"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- Mockup 4 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-72 cursor-pointer"
+                        onclick="openModal('assets/mockups/a4.png')">
+                        <img src="assets/mockups/a4.png" alt="AQARGO Mockup 4"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- Mockup 5 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-72 cursor-pointer"
+                        onclick="openModal('assets/mockups/a5.png')">
+                        <img src="assets/mockups/a5.png" alt="AQARGO Mockup 5"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- Mockup 6 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift group h-72 cursor-pointer"
+                        onclick="openModal('assets/mockups/a6.png')">
+                        <img src="assets/mockups/a6.png" alt="AQARGO Mockup 6"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="imageModal"
+        class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md hidden transition-opacity duration-300 opacity-0"
+        onclick="closeModal()">
+        <div class="relative glass-card p-2 rounded-2xl max-w-4xl max-h-[85vh] transform transition-transform duration-300 scale-95"
+            onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white/70 hover:text-white p-2">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <img id="modalImage" src="" alt="Full View" class="w-full h-full object-contain rounded-xl"
+                style="max-height: 80vh;">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="pt-12 pb-8 px-6 border-t border-border/50">
+        <div class="glass-card rounded-3xl p-8 flex flex-col items-center gap-6">
+            <!-- Navigation Links -->
+            <div class="flex gap-6 text-sm font-medium">
+                <a href="index.html#projects"
+                    class="text-muted-foreground hover:text-primary transition-colors">Work</a>
+                <a href="index.html#about" class="text-muted-foreground hover:text-primary transition-colors">About</a>
+                <a href="index.html#contact"
+                    class="text-muted-foreground hover:text-primary transition-colors">Contact</a>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-16 h-px bg-foreground/10"></div>
+
+            <!-- Credits -->
+            <div class="text-center">
+                <div class="flex items-center justify-center gap-2 text-muted-foreground mb-1">
+                    <p>Designed & Built with</p>
+                    <i data-lucide="heart" class="w-4 h-4 text-accent fill-accent animate-pulse"></i>
+                    <p>by Aravind Sudheer</p>
+                </div>
+                <p class="text-sm text-muted-foreground">© 2025 All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+
+            modalImg.src = imageSrc;
+            modal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.children[0].classList.remove('scale-95');
+                modal.children[0].classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+
+            modal.classList.add('opacity-0');
+            modal.children[0].classList.remove('scale-100');
+            modal.children[0].classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+</body>
+
+</html>
