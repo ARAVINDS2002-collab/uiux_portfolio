@@ -1,0 +1,378 @@
+/* 
+  Premium Glassmorphism Design System 
+  "Deep Obsidian"
+*/
+
+:root {
+  /* Default/Dark Theme Variables (Deep Obsidian) */
+  --bg-deep: 240 10% 4%;
+  --bg-accent: 260 20% 8%;
+  --primary: 45 100% 50%;
+  --secondary: 260 100% 65%;
+  --accent: 320 100% 60%;
+  --highlight: 180 100% 70%;
+  --text-main: 0 0% 100%;
+  --text-muted: 240 10% 70%;
+  --primary-foreground: 240 10% 4%;
+  --secondary-foreground: 0 0% 100%;
+
+  /* Dark Glass Variables */
+  --glass-bg: rgba(0, 0, 0, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --glass-blur: 20px;
+
+  /* Gradients */
+  --gradient-aurora: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
+  --gradient-mesh: radial-gradient(circle at 0% 0%, hsla(var(--secondary), 0.1) 0%, transparent 50%), radial-gradient(circle at 100% 0%, hsla(var(--primary), 0.1) 0%, transparent 50%);
+
+  /* Animation Timings */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Tailwind Mappings */
+  --background: 240 10% 4%;
+  --foreground: 0 0% 100%;
+  --muted-foreground: 240 10% 70%;
+  --border: 240 3.7% 15.9%;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+  --bg-deep: 240 20% 97%;
+  /* Soft Cloud White */
+  --bg-accent: 240 20% 94%;
+
+  --primary: 45 100% 40%;
+  /* Darker Gold for visibility */
+  --secondary: 260 80% 60%;
+  --accent: 320 90% 55%;
+
+  --text-main: 240 10% 10%;
+  /* Almost Black */
+  --text-muted: 240 5% 45%;
+  --primary-foreground: 240 10% 4%;
+  --secondary-foreground: 0 0% 100%;
+
+  /* Light Glass Variables */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+
+  /* Tailwind Light Overrides */
+  --background: 240 20% 97%;
+  --foreground: 240 10% 10%;
+  --muted-foreground: 240 5% 45%;
+  --border: 240 5.9% 90%;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--bg-deep));
+  /* Fallback gradient if image fails */
+  background-image: url('midnight_obsidian_background.png'), linear-gradient(to bottom right, #050505, #1a1a2e);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: hsl(var(--text-main));
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 1s ease, color 1s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+main,
+#main-view {
+  flex: 1 0 auto;
+}
+
+[data-theme="light"] body {
+  background-image: none;
+  background-color: hsl(var(--bg-deep));
+  background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.02em;
+}
+
+.gradient-text {
+  background: var(--gradient-aurora);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: shimmerText 5s linear infinite;
+}
+
+/* 
+  PREMIUM GLASS CARD 
+  Multi-layered approach for depth
+*/
+.glass-card {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-top: 1px solid var(--glass-highlight);
+  border-left: 1px solid var(--glass-highlight);
+  box-shadow: var(--glass-shadow);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+  /* Keep content inside */
+}
+
+/* Inner glow effect */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.06),
+      transparent 40%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glass-card:hover::after {
+  opacity: 1;
+}
+
+/* Hover Lift - 3D Feel */
+.hover-lift {
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.4),
+    0 0 20px hsla(var(--primary), 0.2);
+}
+
+/* Buttons */
+button,
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Animations */
+@keyframes meshMove {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes shimmerText {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Scroll Reveal Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--ease-out-expo);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Utility */
+.text-muted-foreground {
+  color: hsl(var(--text-muted));
+}
+
+.text-foreground {
+  color: hsl(var(--text-main));
+}
+
+.bg-background {
+  background-color: transparent;
+}
+
+/* Override inputs */
+
+/* Input Fields Glass */
+/* Input Fields Glass */
+input,
+textarea {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-main) !important;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  background: var(--glass-highlight) !important;
+  border-color: hsl(var(--primary)) !important;
+  box-shadow: 0 0 15px hsla(var(--primary), 0.2);
+  outline: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--bg-deep));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(var(--text-muted), 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(var(--primary), 0.5);
+}
+
+/* Hidden Utility */
+.hidden-section {
+  display: none !important;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Toast */
+.toast-notification {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  color: hsl(var(--text-main));
+}
+
+.toast-notification h4 {
+  color: hsl(var(--text-main));
+}
+
+/* Tailwind Overrides for specific colors if needed */
+.text-primary {
+  color: hsl(var(--primary));
+}
+
+.text-secondary {
+  color: hsl(var(--secondary));
+}
+
+.text-accent {
+  color: hsl(var(--accent));
+}
+
+/* Toast Animations */
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes toastOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(100%) scale(0.9);
+  }
+}
+
+.animate-toast-in {
+  animation: toastIn 0.4s var(--ease-out-expo) forwards;
+}
+
+.animate-toast-out {
+  animation: toastOut 0.3s var(--ease-out-expo) forwards;
+}
+
+/* Smoother Theme Transitions */
+body,
+.glass-card,
+button,
+a,
+input,
+textarea,
+.glass-card::after {
+  transition-property: background-color, background-image, border-color, color, fill, stroke, box-shadow, transform, opacity;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-toast-out {
+  animation: toastOut 0.3s var(--ease-out-expo) forwards;
+}
